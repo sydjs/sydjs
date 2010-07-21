@@ -1,19 +1,23 @@
-whoami
+Welcome!
 ======
 
-This is basically my Hello World app to test out [heroku's][heroku] experimental [node.js][node] support.
+SydJS has a site! And this is it. Feel free to hack. 
 
-I normally run my node apps with [kiwi][kiwi] but heroku doesn't support that
-currently.  You have to vendor all of your deps in your repo for now.  This app
-should be a good starting point for most people.
+If you don't have membership access to the sydjs organisation on github yet, contact lachlanhardy or craigsharkie to get the hook up.
+
+Otherwise, just fork it and send us a pull request!
+
+
+More details will go below, but basically it's a simple Node app, using Express, running on Heroku.
+
+We based the original deploy on atmos's awesome [heroku-express]: http://github.com/atmos/heroku-express
 
 Running
 =======
 
-    % rake
     % node server.js
 
 
-[heroku]: http://heroku.com
 [node]: http://nodejs.org
-[kiwi]: http://github.com/visionmedia/kiwi
+[express]: http://expressjs.com/
+[heroku]: http://heroku.com
