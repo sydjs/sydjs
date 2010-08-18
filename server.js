@@ -2,6 +2,7 @@
 
 // add the vendored express to the require path
 require.paths.unshift("vendor/express/lib")
+require.paths.unshift("vendor")
 
 // require express and its plugins
 require("express")
