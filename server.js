@@ -7,5 +7,9 @@ require.paths.unshift("vendor/express/lib")
 require("express")
 require("express/plugins")
 
+// require other goodness
+require("connect")
+require("jade")
+
 //require the actual express app
 require ("./lib/app")
