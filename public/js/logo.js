@@ -84,8 +84,8 @@ window.onload = function () {
                         for (var k = 0, kk = l.length; k < kk; k++) {
                             l[k] = ~~(l[k] / step) * step + .5;
                         }
-                        r.rect(l[0], l[1], step, step).attr({stroke: "#000", opacity: .1});
-                        r.rect(l[2], l[3], step, step).attr({stroke: "#000", opacity: .1});
+                        r.rect(l[0], l[1], step, step).attr({stroke: "#000", opacity: .8, "stroke-dasharray": ". "});
+                        r.rect(l[2], l[3], step, step).attr({stroke: "#000", opacity: .8, "stroke-dasharray": ". "});
                         outline[0].push([l[0], l[1]]);
                         outline[1].unshift([l[2], l[3]]);
                         if (p == n) {
@@ -95,7 +95,8 @@ window.onload = function () {
                     }
                     this.sdata.push("M");
                 }
-                r.path("M" + this.sdata).attr({opacity: .3, "stroke-dasharray": ". "});
+                // r.path("M" + this.sdata).attr({opacity: .3, "stroke-dasharray": ". "});
+                r.path("M" + this.sdata).attr({opacity: .3, "stroke-width": 3});
                 this.shapes.attr({path: this.getPath()});
                 setTimeout(this.anim, 1000);
             },
