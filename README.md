@@ -3,7 +3,7 @@ Welcome!
 
 SydJS has a site! And [this is it][sydjs]. Feel free to hack. 
 
-If you don't have membership access to the [sydjs][sydjs-org] organisation on GitHub yet, contact [Lachlan Hardy][lachlanhardy] or [Craig Sharkie][craigsharkie] to get the hook up.
+If you don't have membership access to the [sydjs][sydjs-org] organisation on GitHub yet, contact [Lachlan Hardy][lachlanhardy] or [Craig Sharkie][twalve] to get the hook up.
 
 Otherwise, just fork it and send us a pull request!
 
@@ -17,6 +17,16 @@ Running
 
     % node server.js
 
+Branching
+=========
+
+Please use feature branches.
+
+*master* is the edge
+*production* is what's been deployed to the site
+(so if you deploy, push that to production as well)
+
+
 [sydjs]: http://sydjs.com
 [sydjs-org]: http://github.com/sydjs/
 [node]: http://nodejs.org
@@ -25,5 +35,5 @@ Running
 [heroku-express]: http://github.com/atmos/heroku-express
 [atmos]: http://github.com/atmos/
 [lachlanhardy]: http://github.com/lachlanhardy/
-[craigsharkie]: http://github.com/craigsharkie/
+[twalve]: http://github.com/twalve/
 
