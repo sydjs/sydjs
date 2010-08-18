@@ -14,3 +14,6 @@ require("jade")
 
 //require the actual express app
 require ("./lib/app")
+
+// run app
+run(parseInt(process.env.PORT || 8000), null)
