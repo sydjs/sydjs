@@ -1,14 +1,16 @@
 !!! 5
-html
+html(lang="en-au")
   head
-    title SydJS - JavaScript in Sydney has a new home
+    meta(charset="utf-8")
+    title SydJS &mdash; JavaScript in Sydney has a new home
     link(rel='stylesheet', href='/public/css/style.css')
   body
-    #header
+    #content
       h1
         a(href='/')  SydJS
-    #main
-      != body
+      !=body
 
-  script(src='/public/js/raphael.min.js')
-  script(src='/public/js/logo.js')
+  script document.body.className = "js";
+  script(src='/public/js/raphael.js')
+  script(src='/public/js/museo.js')
+  script(src='/public/js/syd.js')

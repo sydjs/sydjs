@@ -1,2 +1,8 @@
-body {background: url(img/bg.png);}
-
+body {
+    background: #2c53b0 url(img/blueprintbg.png);
+}
+.js #content {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+}
