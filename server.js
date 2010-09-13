@@ -1,7 +1,5 @@
 var fs = require("fs"),
     path = require("path"),
-    // Buffer = require("buffer").Buffer,
-    // p404 = new Buffer('<!doctype html><html lang=en><meta charset=utf-8><title>Not Found</title><style>body{background:#22252a;color:#fff;font:300 100.01% "Helvetica Neue",Helvetica,"Arial Unicode MS",Arial,sans-serif;}h1{font-weight:300;text-align:center;padding:5em;color:#ccf;}</style><body><h1>404<br>Page not found'),
     p404 = '<!doctype html><html lang=en><meta charset=utf-8><title>Not Found</title><style>body{background:#22252a;color:#fff;font:300 100.01% "Helvetica Neue",Helvetica,"Arial Unicode MS",Arial,sans-serif;}h1{font-weight:300;text-align:center;padding:5em;color:#ccf;}</style><body><h1>404<br>Page not found',
     p500 = '<!doctype html><html lang=en><meta charset=utf-8><title>Internal Error</title><style>body{background:#22252a;color:#fff;font:300 100.01% "Helvetica Neue",Helvetica,"Arial Unicode MS",Arial,sans-serif;}h1{font-weight:300;text-align:center;padding:5em;color:#fcc;}</style><body><h1>500<br>Internal Error<p>',
     url = require("url");
@@ -17,13 +15,10 @@ require("http").createServer(function (req, res) {
             fs.readFile(fullPath, encoding[ext] || "binary", function (err, data) {
                 if (err) {
                     res.writeHead(500, {"Content-Type": "text/html"});
-                    // res.end(new Buffer(p500 + err));
                     res.end(p500 + err);
                 }
                 res.writeHead(200, {"Content-Type": types[ext] || "text/plain"});
-                // res.write(data, encoding[ext] || "binary");
                 if(!req.method.match(/head/i)){ res.write(data, encoding[ext] || 'binary'); }
-                
                 res.end();
             });
         } else {
