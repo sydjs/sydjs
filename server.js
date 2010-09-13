@@ -22,7 +22,7 @@ require("http").createServer(function (req, res) {
                 }
                 res.writeHead(200, {"Content-Type": types[ext] || "text/plain"});
                 // res.write(data, encoding[ext] || "binary");
-                if(res.method.match(/head/i)){ res.write(data, encoding[ext] || 'binary'); }
+                if(!res.method.match(/head/i)){ res.write(data, encoding[ext] || 'binary'); }
                 
                 res.end();
             });
