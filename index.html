@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>SydJS &mdash; JavaScript in Sydney has a new home</title>
+        <style type="text/css" media="screen">
+            body {
+                background: #2c53b0 url(blueprintbg.png);
+            }
+            .js #content {
+                position: absolute;
+                left: -9999em;
+                top: -9999em;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="content">
+            <h1>Sydney JavaScript Group</h1>
+            <h2 id="next">Next Meeting:</h2>
+            <dl>
+                <dt>When:</dt>
+                <dd id="when">2010-09-16 18:00:00</dd>
+                <dt>Who:</dt>
+                <dd>
+                    <dl>
+                        <dt id="speaker1">Nathanael Shergold</dt>
+                        <dd id="topic1">YUI3 and custom components</dd>
+                        <dt id="speaker2">Steve Haffenden</dt>
+                        <dd id="topic2">Types in JavaScript</dd>
+                        <dt id="speaker3">&ldquo;Mysterious Guest&rdquo;</dt>
+                        <dd id="topic3">Sammy.js</dd>
+                    </dl>
+                </dd>
+                <dt>Where:</dt>
+                <dd><a href="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=185+Sussex+Street,+Atlassian&sll=-33.867139,151.207114&sspn=0.076827,0.135698&ie=UTF8&hq=185+Sussex+Street,+Atlassian&hnear=&t=h&ll=-33.870416,151.204062&spn=0.009603,0.016962&z=17&iwloc=A" id="where">185 Sussex Street, Atlassian</a></dd>
+            </dl>
+        </div>
+        <script>document.body.className = "js";</script>
+        <script src="raphael.js"></script>
+        <script src="museo.js"></script>
+        <script src="syd.js"></script>
+    </body>
+</html>
