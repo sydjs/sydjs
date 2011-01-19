@@ -1,0 +1,4 @@
+- Add archives
+  - some sort of database shenanigans?
+    - CouchDB would carry our mono-lingual motif to the natural conclusion...
+- make site that actually scales like normal and doesn't use Raphaël for everything ;)
