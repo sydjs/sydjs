@@ -20,10 +20,6 @@ Branching
 
 Please use feature branches.
 
-*master* is the edge
-*production* is what's been deployed to the site
-(so if you deploy, push that to production as well)
-
 
 [sydjs]: http://sydjs.com
 [sydjs-org]: http://github.com/sydjs/
