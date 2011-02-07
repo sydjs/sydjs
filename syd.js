@@ -1,7 +1,7 @@
 window.onload = function () {
     var step = 5,
         pi = Math.PI,
-        W = 75,
+        W = 100,
         H = 48,
         r = Raphael(0, 0, W * step * 2.65, H * step * 3.8),
         dots = [
@@ -119,23 +119,23 @@ window.onload = function () {
     }, 10000);
 
     if ($("next")) {
-        r.path(when).attr({fill: "#fff", stroke: "none", translation: "600 100", scale: 2});
-        r.print(664, 116, $("when").innerHTML, museo, 24).attr({fill: "#fff"});
+        r.path(when).attr({fill: "#fff", stroke: "none", translation: "600 88", scale: 2});
+        r.print(670, 110, $("when").innerHTML, museo, 24).attr({fill: "#fff"});
         i = 1;
         var y = 180;
         while ($("speaker" + i)) {
-            i == 1 && r.path(who).attr({fill: "#fff", stroke: "none", translation: "600 164", scale: 2});
-            r.print(664, y, $("topic" + i).innerHTML, museo, 24).attr({fill: "#fff"});
-            r.print(664, y + 24 * 1.1, $("speaker" + i).innerHTML, museo, 18).attr({fill: "#fff", opacity: .6});
+            i == 1 && r.path(who).attr({fill: "#fff", stroke: "none", translation: "600 170", scale: 2});
+            r.print(670, y, $("topic" + i).innerHTML, museo, 24).attr({fill: "#fff"});
+            r.print(670, y + 24 * 1.1, $("speaker" + i).innerHTML, museo, 18).attr({fill: "#fff", opacity: .6});
             y += 24 * 1.3 * 2;
             i++;
         }
         r.path(where).attr({fill: "#fff", stroke: "none", translation: [600, y + 24], scale: 2});
-        r.print(664, y + 40, $("where").innerHTML, museo, 24).attr({fill: "#fff"});
+        r.print(670, y + 40, $("where").innerHTML, museo, 24).attr({fill: "#fff"});
         r.rect(600, y, 400, 64).attr({href: $("where").href, fill: "#000", opacity: 0});
 
         r.path(register).attr({fill: "#fff", stroke: "none", translation: [600, y + 94], scale: 2});
-        r.print(664, y + 114, $("register").innerHTML, museo, 24).attr({fill: "#fff"});
+        r.print(670, y + 114, $("register").innerHTML, museo, 24).attr({fill: "#fff"});
         r.rect(600, y + 84, 400, 64).attr({href: $("register").href, fill: "#000", opacity: 0});
     }
 
