@@ -125,7 +125,7 @@ window.onload = function () {
         var y = 180;
         while ($("speaker" + i)) {
             i == 1 && r.path(who).attr({fill: "#fff", stroke: "none", translation: "600 170", scale: 2});
-            r.print(670, y, $("topic" + i).innerHTML, museo, 24).attr({fill: "#fff"});
+            r.print(670, y, $("topic" + i).innerHTML.replace('&amp;', '&'), museo, 24).attr({fill: "#fff"});
             r.print(670, y + 24 * 1.1, $("speaker" + i).innerHTML, museo, 18).attr({fill: "#fff", opacity: .6});
             y += 24 * 1.3 * 2;
             i++;
