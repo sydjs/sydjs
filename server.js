@@ -4,6 +4,8 @@ var fs = require("fs"),
     p500 = '<!doctype html><html lang=en><meta charset=utf-8><title>Internal Error</title><style>body{background:#22252a;color:#fff;font:300 100.01% "Helvetica Neue",Helvetica,"Arial Unicode MS",Arial,sans-serif;}h1{font-weight:300;text-align:center;padding:5em;color:#fcc;}</style><body><h1>500<br>Internal Error<p>',
     url = require("url");
 
+process.env.TZ = "Australia/Sydney";
+
 require("http").createServer(function (req, res) {
     var name = url.parse(req.url).pathname;
     name == "/" && (name = "/index.html");
@@ -18,7 +20,12 @@ require("http").createServer(function (req, res) {
                     res.end(p500 + err);
                 }
                 res.writeHead(200, {"Content-Type": types[ext] || "text/plain"});
-                if(!req.method.match(/head/i)){ res.write(data, encoding[ext] || 'binary'); }
+                if(!req.method.match(/head/i)){
+                    if (name == "/index.html") {
+                        data = parseSpeakers(data);
+                    }
+                    res.write(data, encoding[ext] || 'binary');
+                }
                 res.end();
             });
         } else {
@@ -27,6 +34,37 @@ require("http").createServer(function (req, res) {
         }
     });
 }).listen(parseInt(process.env.PORT || 8001, 10));
+
+function parseSpeakers(data) {
+    var meetings = require("./meetings").meetings,
+        index = meetings.length,
+        meeting,
+        current = meetings[index - 1],
+        now = new Date(),
+        startTime;
+    while (index--) {
+        meeting = meetings[index];
+        startTime = new Date(meeting.date);
+        if (startTime < now) {
+            break;
+        }
+        current = meeting;
+    }
+    data = data.replace("{{datetime}}", current.date)
+        .replace(/\{\{templatestart\}\}([\s\S]*?)\{\{templateend\}\}/, function (match, template) {
+            var html = [],
+                section,
+                speaker;
+            current.speakers.forEach(function (speaker, i) {
+                section = template.replace(/\{\{n\}\}/g, i + 1)
+                    .replace("{{speaker}}", speaker.name)
+                    .replace("{{topic}}", speaker.topic);
+                html.push(section);
+            });
+            return html.join("");
+        });
+    return data;
+}
 
 var types = {
       ai    : "application/postscript",

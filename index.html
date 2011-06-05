@@ -20,16 +20,14 @@
             <h2 id="next">Next Meeting:</h2>
             <dl>
                 <dt>When:</dt>
-                <dd id="when" class="dtstart">2011-05-18 18:00:00</dd>
+                <dd id="when" class="dtstart">{{datetime}}</dd>
                 <dt>Who:</dt>
                 <dd>
                     <dl>
-                        <dt id="speaker1">Ben Buchanan</dt>
-                        <dd id="topic1">Writing and refactoring for fun and profit.</dd>
-                        <dt id="speaker2">Paul Theriault</dt>
-                        <dd id="topic2">An Introduction to OWASP</dd>
-                        <dt id="speaker3">Filippo Vitale</dt>
-                        <dd id="topic3">Modelling a view of the Model View ViewModel</dd>
+                    {{templatestart}}
+                        <dt id="speaker{{n}}">{{speaker}}</dt>
+                        <dd id="topic{{n}}">{{topic}}</dd>
+                    {{templateend}}
                     </dl>
                 </dd>
                 <dt>Where:</dt>
