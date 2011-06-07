@@ -39,13 +39,18 @@ function parseSpeakers(data) {
     var meetings = require("./meetings").meetings,
         index = meetings.length,
         meeting,
+        startTime,
         current = meetings[index - 1],
-        now = new Date(),
-        startTime;
+        now = new Date,
+        midnight = new Date(
+            now.getFullYear(),
+            now.getMonth(),
+            now.getDate() + 1
+        );
     while (index--) {
         meeting = meetings[index];
         startTime = new Date(meeting.date);
-        if (startTime < now) {
+        if (startTime < midnight) {
             break;
         }
         current = meeting;
