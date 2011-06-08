@@ -12,7 +12,8 @@ meetings.push({
 meetings.push({
     date: "2011-06-15 18:00:00",
     speakers: [
-        {name: "", topic: "Speakers TBC"}
+        {name: "Jared Wiles", topic: "Looking behind the curtain of jQuery - Part 1"},
+        {name: "Jared Wiles", topic: "Looking behind the curtain of jQuery - Part 2"}
     ]
 });
 
