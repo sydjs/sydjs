@@ -11,6 +11,17 @@ require("http").createServer(function (req, res) {
     name == "/" && (name = "/index.html");
     var fullPath = path.join(process.cwd(), process.argv[2] || "", name),
         content;
+    
+    // Heroku timezone testing
+    if (name == "/timetest") {
+        var now = new Date;
+        content = "<h1>Server</h1><p>Rel: " + now.toString() + "</p><p>Abs: " + now.toUTCString() + "</p>";
+        res.writeHead(200, {"Content-Type": "text/html"});
+        res.write(content, "utf8");
+        res.end();
+    }
+    // End Heroku timezone testing
+    
     var ext = name.substring(name.lastIndexOf(".") + 1);
     fs.stat(fullPath, function (err, stats) {
         if (!err && stats.isFile()) {
