@@ -53,15 +53,15 @@ function parseSpeakers(data) {
         startTime,
         current = meetings[index - 1],
         now = new Date,
-        midnight = new Date(
+        prevMidnight = new Date(
             now.getFullYear(),
             now.getMonth(),
-            now.getDate() + 1
+            now.getDate()
         );
     while (index--) {
         meeting = meetings[index];
         startTime = new Date(meeting.date);
-        if (startTime < midnight) {
+        if (startTime < prevMidnight) {
             break;
         }
         current = meeting;

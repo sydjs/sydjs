@@ -24,6 +24,19 @@ meetings.push({
     ]
 });
 
+meetings.push({
+    date: "2011-08-17 18:00:00",
+    speakers: [
+        {name: "", topic: "Speakers TBC"}
+    ]
+});
 
+/***** END OF MEETINGS CONFIG *****/
+
+
+meetings.sort(function (a, b) {
+    var ad = a.date, bd = b.date;
+    return ad == bd ? 0 : ad < bd ? -1 : 1;
+});
 
 exports.meetings = meetings;
