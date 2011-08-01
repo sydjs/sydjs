@@ -28,9 +28,17 @@ meetings.push({
 meetings.push({
     date: "2011-08-17 18:00:00",
     speakers: [
-        {name: "", topic: "Speakers TBC"}
+        {name: "Simon Swain", topic: "Building a custom Interface with jQueryUI & Raphaël"},
+        {name: "John Allsopp", topic: "Offline apps with HTML5"}
     ]
 });
+
+// meetings.push({
+//     date: "2011-08-17 18:00:00",
+//     speakers: [
+//         {name: "", topic: "Speakers TBC"}
+//     ]
+// });
 
 /***** END OF MEETINGS CONFIG *****/
 
