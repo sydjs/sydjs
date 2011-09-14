@@ -36,9 +36,9 @@ meetings.push({
 meetings.push({
     date: "2011-09-21 18:00:00",
     speakers: [
+        {name: "Steve Haffenden", topic: "Everybody loves Strings, an Introduction"},
         {name: "Chris Darroch", topic: "Making testing less testing with Sinon.js"},
         {name: "Dominic Lovell", topic: "What's next for webOS?"},
-        {name: "Julio Cesar Ody", topic: "Something absurdly good looking with Three.js"},
         {name: "Valery Yushchenko", topic: "Modern Tea Ceremony Powered by Node.js"}
     ]
 });
