@@ -44,11 +44,18 @@ meetings.push({
 });
 
 meetings.push({
-    date: "2011-10-19 18:00:00",
+    date: "2011-10-12 18:00:00",
     speakers: [
-        {name: "", topic: "Speakers TBC"}
+        {name: "Various Artists", topic: "Location, Location, Location"}
     ]
 });
+
+// meetings.push({
+//     date: "2011-10-19 18:00:00",
+//     speakers: [
+//         {name: "", topic: "Speakers TBC"}
+//     ]
+// });
 
 /***** END OF MEETINGS CONFIG *****/
 
