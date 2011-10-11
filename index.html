@@ -6,15 +6,25 @@
         <style type="text/css" media="screen">
             body {
                 background: #2c53b0 url(blueprintbg.png);
+                font-family: "Helvetica Neue",Arial,sans-serif;
+                color: #fff;
+            }
+            a:link, a:visited {
+                color: #fff;
             }
             .js #content {
                 position: absolute;
                 left: -9999em;
                 top: -9999em;
             }
+            .no-raphael #content {
+                position: initial;
+                left: initial;
+                top: initial;
+            }
         </style>
     </head>
-    <body>
+    <body class="no-raphael no-js">
         <div id="content" class="vevent">
             <h1 class="summary">Sydney JavaScript Group</h1>
             <h2 id="next">Next Meeting:</h2>
@@ -50,7 +60,7 @@
                 </dd>
             </dl>
         </div>
-        <script>document.body.className = "js";</script>
+        <script>document.body.className = document.body.className.replace(/\bno-js\b/,'js');</script>
         <script src="raphael.js"></script>
         <script src="museo.js"></script>
         <script src="syd.js"></script>
