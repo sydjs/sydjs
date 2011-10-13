@@ -7,33 +7,39 @@ var fs = require("fs"),
 process.env.TZ = "Australia/Sydney";
 
 require("http").createServer(function (req, res) {
+	
     var name = url.parse(req.url).pathname;
+	//fix up the names
     name == "/" && (name = "/index.html");
-    var fullPath = path.join(process.cwd(), process.argv[2] || "", name),
-        content;
+
+	//what file you want?
+    var prepath = path.join(process.cwd(), process.argv[2] || ""),
+		ext = name.substring(name.lastIndexOf(".") + 1),
+		//routing for static files
+		fullPath = (ext !== 'html') ? path.join(prepath, 'static', name) : path.join(prepath, 'views', name);
     
     // Heroku timezone testing
     if (name == "/timetest") {
         var now = new Date;
-        content = "<h1>Server</h1><p>Rel: " + now.toString() + "</p><p>Abs: " + now.toUTCString() + "</p>";
+        var content = "<h1>Server</h1><p>Rel: " + now.toString() + "</p><p>Abs: " + now.toUTCString() + "</p>";
         res.writeHead(200, {"Content-Type": "text/html"});
         res.write(content, "utf8");
         res.end();
     }
     // End Heroku timezone testing
     
-    var ext = name.substring(name.lastIndexOf(".") + 1);
-    fs.stat(fullPath, function (err, stats) {
-        if (!err && stats.isFile()) {
+	//serve static file
+	fs.stat(fullPath, function (err, stats) {
+		if (!err && stats.isFile()) {
             fs.readFile(fullPath, encoding[ext] || "binary", function (err, data) {
                 if (err) {
                     res.writeHead(500, {"Content-Type": "text/html"});
                     res.end(p500 + err);
                 }
                 res.writeHead(200, {"Content-Type": types[ext] || "text/plain"});
-                if(!req.method.match(/head/i)){
-                    if (name == "/index.html") {
-                        data = parseSpeakers(data);
+                if (!req.method.match(/head/i)) {
+                    if (name === "/index.html") {
+                        data = parseMeetings(data);
                     }
                     res.write(data, encoding[ext] || 'binary');
                 }
@@ -46,8 +52,11 @@ require("http").createServer(function (req, res) {
     });
 }).listen(parseInt(process.env.PORT || 8001, 10));
 
-function parseSpeakers(data) {
-    var meetings = require("./meetings").meetings,
+
+
+
+function parseMeetings(data) {
+    var meetings = require("./data/meetings").meetings,
         index = meetings.length,
         meeting,
         startTime,
@@ -66,7 +75,9 @@ function parseSpeakers(data) {
         }
         current = meeting;
     }
-    data = data.replace("{{datetime}}", current.date)
+    startTime = new Date(current.date);
+    data = data.replace("{{datetime}}", startTime.toString())
+        .replace('{{datevalue}}', current.date + '+' + (-startTime.getTimezoneOffset()*10/6))
         .replace(/\{\{templatestart\}\}([\s\S]*?)\{\{templateend\}\}/, function (match, template) {
             var html = [],
                 section,

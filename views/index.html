@@ -3,26 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>SydJS &mdash; JavaScript in Sydney has a new home</title>
-        <style type="text/css" media="screen">
-            body {
-                background: #2c53b0 url(blueprintbg.png);
-                font-family: "Helvetica Neue",Arial,sans-serif;
-                color: #fff;
-            }
-            a:link, a:visited {
-                color: #fff;
-            }
-            .js #content {
-                position: absolute;
-                left: -9999em;
-                top: -9999em;
-            }
-            .no-raphael #content {
-                position: initial;
-                left: initial;
-                top: initial;
-            }
-        </style>
+        <link type="text/css" rel="stylesheet" href="style.css">
     </head>
     <body class="no-raphael no-js">
         <div id="content" class="vevent">
@@ -30,7 +11,7 @@
             <h2 id="next">Next Meeting:</h2>
             <dl>
                 <dt>When:</dt>
-                <dd id="when" class="dtstart">{{datetime}}</dd>
+                <dd id="when" class="dtstart" class="value" title="{{datevalue}}">{{datetime}}</dd>
                 <dt>Who:</dt>
                 <dd>
                     <dl>
@@ -60,7 +41,7 @@
                 </dd>
             </dl>
         </div>
-        <script>document.body.className = document.body.className.replace(/\bno-js\b/,'js');</script>
+		<script>document.body.className = document.body.className.replace(/\bno-js\b/,'js');</script>
         <script src="raphael.js"></script>
         <script src="museo.js"></script>
         <script src="syd.js"></script>
