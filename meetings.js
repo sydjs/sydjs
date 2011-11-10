@@ -50,6 +50,16 @@ meetings.push({
     ]
 });
 
+ meetings.push({
+     date: "2011-11-16 18:00:00",
+     speakers: [
+         {name: "Jonathan Creenaune", topic: "A walk through JavaScript's event-driven model"},
+         {name: "Brian McKenna", topic: "AltJS - languages that compile to JS"},
+         {name: "Adam Ahmed", topic: "Inside large scale applications"},
+         {name: "Wesley Walser", topic: "Getting loud about Amplify.js"}
+     ]
+ });
+
 // meetings.push({
 //     date: "2011-10-19 18:00:00",
 //     speakers: [
