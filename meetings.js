@@ -50,22 +50,39 @@ meetings.push({
     ]
 });
 
- meetings.push({
-     date: "2011-11-16 18:00:00",
-     speakers: [
-         {name: "Jonathan Creenaune", topic: "A walk through JavaScript's event-driven model"},
-         {name: "Brian McKenna", topic: "AltJS - languages that compile to JS"},
-         {name: "Adam Ahmed", topic: "Inside large scale applications"},
-         {name: "Wesley Walser", topic: "Getting loud about Amplify.js"}
-     ]
- });
+meetings.push({
+    date: "2011-11-16 18:00:00",
+    speakers: [
+        {name: "Jonathan Creenaune", topic: "A walk through JavaScript's event-driven model"},
+        {name: "Brian McKenna", topic: "AltJS - languages that compile to JS"},
+        {name: "Adam Ahmed", topic: "Inside large scale applications"},
+        {name: "Wesley Walser", topic: "Getting loud about Amplify.js"}
+    ]
+});
 
-// meetings.push({
-//     date: "2011-10-19 18:00:00",
-//     speakers: [
-//         {name: "", topic: "Speakers TBC"}
-//     ]
-// });
+meetings.push({
+    date: "2011-12-21 18:00:00",
+    speakers: [
+        {name: "John Bristowe", topic: "Bringing the Awesome with Kendo UI"},
+        {name: "Graeme Merrall", topic: "Everything you wanted to know about Dart"},
+        {name: "Jared Wyles", topic: "Missing the Forrest for the trees"},
+        {name: "Ben Schwarz", topic: "Never accept no for an answer"}
+    ]
+});
+
+meetings.push({
+    date: "2012-01-18 18:00:00",
+    speakers: [
+        {name: "", topic: "Speakers TBC"}
+    ]
+});
+
+//meetings.push({
+//    date: "2012-01-18 18:00:00",
+//    speakers: [
+//        {name: "", topic: "Speakers TBC"}
+//    ]
+//});
 
 /***** END OF MEETINGS CONFIG *****/
 
