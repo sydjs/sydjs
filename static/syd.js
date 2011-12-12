@@ -105,7 +105,7 @@ window.onload = function () {
         }
         return newp;
     }
-
+    
     var path = [];
     for (var i = 0, ii = dots.length; i < ii; i++) {
         path.push("M");
@@ -123,35 +123,35 @@ window.onload = function () {
     }, 10000);
 
     if ($("next")) {
-        r.path(when).attr({fill: "#fff", stroke: "none", translation: "600 88", scale: 2});
+        r.path(when).attr({fill: "#fff", stroke: "none", transform: "t600,88 s2"});
         r.print(670, 110, $("when").innerHTML, museo, 24).attr({fill: "#fff"});
         i = 1;
         var y = 180;
         while ($("speaker" + i)) {
-            i == 1 && r.path(who).attr({fill: "#fff", stroke: "none", translation: "600 170", scale: 2});
+            i == 1 && r.path(who).attr({fill: "#fff", stroke: "none", transform: "t600,170 s2"});
             r.print(670, y, $("topic" + i).innerHTML.replace('&amp;', '&'), museo, 24).attr({fill: "#fff"});
             r.print(670, y + 24 * 1.1, $("speaker" + i).innerHTML, museo, 18).attr({fill: "#fff", opacity: .6});
             y += 24 * 1.3 * 2;
             i++;
         }
-        r.path(where).attr({fill: "#fff", stroke: "none", translation: [600, y + 24], scale: 2});
+        r.path(where).attr({fill: "#fff", stroke: "none", transform: "t600," + (y + 24) + " s2"});
         r.print(670, y + 40, $("where").innerHTML, museo, 24).attr({fill: "#fff"});
         r.rect(600, y, 400, 64).attr({href: $("where").href, fill: "#000", opacity: 0});
 
-        r.path(register).attr({fill: "#fff", stroke: "none", translation: [600, y + 94], scale: 2});
+        r.path(register).attr({fill: "#fff", stroke: "none", transform: "t600," + (y + 94) + " s2"});
         r.print(670, y + 114, $("register").innerHTML, museo, 24).attr({fill: "#fff"});
         r.rect(600, y + 84, 400, 64).attr({href: $("register").href, fill: "#000", opacity: 0});
     }
 
-    r.path(twitter).attr({fill: "#fff", stroke: "none", translation: [25, y + 172]});
+    r.path(twitter).attr({fill: "#fff", stroke: "none", transform: "t25," + (y + 172)});
     r.print(58, y +194, $("twitter").innerHTML, museo, 18).attr({fill: "#fff"});
     r.rect(25, y + 175, 120, 30).attr({href: $("twitter").href, fill: "#000", opacity: 0});
 
-    r.path(join).attr({fill: "#fff", stroke: "none", translation: [167, y + 176]});
+    r.path(join).attr({fill: "#fff", stroke: "none", transform: "t167," + (y + 176)});
     r.print(208, y + 194, $("join").innerHTML, museo, 18).attr({fill: "#fff"});
     r.rect(167, y + 180, 180, 26).attr({href: $("join").href, fill: "#000", opacity: 0});
 
-    r.path(archive).attr({fill: "#fff", stroke: "none", translation: [367, y + 173]});
+    r.path(archive).attr({fill: "#fff", stroke: "none", transform: "t367," + (y + 173)});
     r.print(406, y + 194, $("archive").innerHTML, museo, 18).attr({fill: "#fff"});
     r.rect(360, y + 180, 190, 26).attr({href: $("archive").href, fill: "#000", opacity: 0});
 };
