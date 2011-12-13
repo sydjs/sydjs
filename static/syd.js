@@ -22,7 +22,8 @@ window.onload = function () {
         twitter = "M23.295,22.567h-7.213c-2.125,0-4.103-2.215-4.103-4.736v-1.829h11.232c1.817,0,3.291-1.469,3.291-3.281c0-1.813-1.474-3.282-3.291-3.282H11.979V6.198c0-1.835-1.375-3.323-3.192-3.323c-1.816,0-3.29,1.488-3.29,3.323v11.633c0,6.23,4.685,11.274,10.476,11.274h7.211c1.818,0,3.318-1.463,3.318-3.298S25.112,22.567,23.295,22.567z",
         join = "M28.516,7.167H3.482l12.517,7.108L28.516,7.167zM16.74,17.303C16.51,17.434,16.255,17.5,16,17.5s-0.51-0.066-0.741-0.197L2.5,10.06v14.773h27V10.06L16.74,17.303z",
         archive = "M15.985,5.972c-7.563,0-13.695,4.077-13.695,9.106c0,2.877,2.013,5.44,5.147,7.108c-0.446,1.479-1.336,3.117-3.056,4.566c0,0,4.015-0.266,6.851-3.143c0.163,0.04,0.332,0.07,0.497,0.107c-0.155-0.462-0.246-0.943-0.246-1.443c0-3.393,3.776-6.05,8.599-6.05c3.464,0,6.379,1.376,7.751,3.406c1.168-1.34,1.847-2.892,1.847-4.552C29.68,10.049,23.548,5.972,15.985,5.972zM27.68,22.274c0-2.79-3.401-5.053-7.599-5.053c-4.196,0-7.599,2.263-7.599,5.053c0,2.791,3.403,5.053,7.599,5.053c0.929,0,1.814-0.116,2.637-0.319c1.573,1.597,3.801,1.744,3.801,1.744c-0.954-0.804-1.447-1.713-1.695-2.534C26.562,25.293,27.68,23.871,27.68,22.274z",
-        d = r.path();
+        d = r.path(),
+        tixi = {};
 
 	if(Raphael.type !== ''){
 		document.body.className = document.body.className.replace(/\bno-raphael\b/,'raphael');
@@ -106,6 +107,55 @@ window.onload = function () {
         return newp;
     }
     
+    tixi.checkStatus = function () {
+        var url = "http://tixi.com.au/sydjs?format=json",
+            request = superagent.get(url);
+        delete request.header['x-requested-with']; // Make the request play nicely with CORS
+        request.end(tixi.processData);
+    }
+    tixi.processData = function (res) {
+        if (!res.ok) {
+            return;
+        }
+        var canRegister = false,
+            date = $("when").getAttribute("title").split(" ")[0],
+            text = '',
+            i = 0,
+            len = res.body.upcomingSessions.length,
+            meeting, meetingDate;
+        for (; i < len; i++) {
+            meeting = res.body.upcomingSessions[i];
+            // "2011-12-21T18:00:00.0000000+11:00" -> "2011-12-21"
+            meetingDate = meeting.startTime.split('T')[0];
+            if (meetingDate == date) {
+                if (meeting.ticketsAvailable) {
+                    canRegister = true;
+                    text = ' (tickets available)';
+                } else {
+                    text = ' (sold out)';
+                }
+                break;
+            }
+        }
+
+        if (text) {
+            tixi.print(text);
+        }
+        if (!canRegister) {
+            tixi.set.attr('opacity', .5);
+        }
+    }
+    tixi.print = function (suffix) {
+        if (tixi.textSet) {
+            tixi.textSet.forEach(function (elem) {
+                elem.remove();
+            }).clear();
+        }
+        tixi.textSet = r.print(tixi.textX, tixi.textY, $("register").innerHTML + (suffix || ''), museo, 24).attr({fill: "#fff"});
+        tixi.set.push(tixi.textSet);
+        tixi.link && tixi.link.toFront();
+    }
+
     var path = [];
     for (var i = 0, ii = dots.length; i < ii; i++) {
         path.push("M");
@@ -138,9 +188,15 @@ window.onload = function () {
         r.print(670, y + 40, $("where").innerHTML, museo, 24).attr({fill: "#fff"});
         r.rect(600, y, 400, 64).attr({href: $("where").href, fill: "#000", opacity: 0});
 
+        r.setStart();
         r.path(register).attr({fill: "#fff", stroke: "none", transform: "t600," + (y + 94) + " s2"});
-        r.print(670, y + 114, $("register").innerHTML, museo, 24).attr({fill: "#fff"});
-        r.rect(600, y + 84, 400, 64).attr({href: $("register").href, fill: "#000", opacity: 0});
+        tixi.textX = 670;
+        tixi.textY = y + 114;
+        tixi.set = r.setFinish();
+        tixi.print();
+        tixi.link = r.rect(600, y + 84, 500, 64).attr({href: $("register").href, fill: "#000", opacity: 0});
+        
+        tixi.checkStatus();
     }
 
     r.path(twitter).attr({fill: "#fff", stroke: "none", transform: "t25," + (y + 172)});
