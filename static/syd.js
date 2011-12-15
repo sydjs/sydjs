@@ -117,6 +117,8 @@ window.onload = function () {
         if (!res.ok) {
             return;
         }
+        // Work around XHR+CORS bug in Firefox: https://bugzilla.mozilla.org/show_bug.cgi?id=608735
+        res.body || (res.body = JSON.parse(res.text));
         var canRegister = false,
             date = $("when").getAttribute("title").split(" ")[0],
             text = '',
