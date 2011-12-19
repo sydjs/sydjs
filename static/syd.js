@@ -107,26 +107,58 @@ window.onload = function () {
         return newp;
     }
     
+    tixi.xhr = null;
+    tixi.getCORS = function () {
+        var xhr,
+            useOnload = false;
+        if (window.XDomainRequest) {
+            xhr = new XDomainRequest;
+            useOnload = true;
+        } else if (window.XMLHttpRequest) {
+            xhr = new XMLHttpRequest;
+            if (!('withCredentials' in xhr)) {
+                xhr = null;
+            }
+        }
+        xhr && (tixi.xhr = xhr);
+        
+        return function (method, url, callback) {
+            if (!xhr) {
+                return;
+            }
+            if (useOnload) {
+                xhr.onload = callback;
+				xhr.onprogress = function () {}; // Required for IE9 to work
+            } else {
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4) {
+                        callback();
+                    }
+                }
+            }
+            
+            xhr.open(method, url, true);
+            xhr.send();
+        }
+    }
     tixi.checkStatus = function () {
         var url = "http://tixi.com.au/sydjs?format=json",
-            request = superagent.get(url);
-        delete request.header['x-requested-with']; // Make the request play nicely with CORS
-        request.end(tixi.processData);
+            request = tixi.getCORS();
+        request("GET", url, tixi.processData);
     }
-    tixi.processData = function (res) {
-        if (!res.ok) {
+    tixi.processData = function () {
+        if (tixi.xhr.status >= 400) {
             return;
         }
-        // Work around XHR+CORS bug in Firefox: https://bugzilla.mozilla.org/show_bug.cgi?id=608735
-        res.body || (res.body = JSON.parse(res.text));
-        var canRegister = false,
+        var data = JSON.parse(tixi.xhr.responseText),
+            canRegister = false,
             date = $("when").getAttribute("title").split(" ")[0],
             text = '',
             i = 0,
-            len = res.body.upcomingSessions.length,
+            len = data.upcomingSessions.length,
             meeting, meetingDate;
         for (; i < len; i++) {
-            meeting = res.body.upcomingSessions[i];
+            meeting = data.upcomingSessions[i];
             // "2011-12-21T18:00:00.0000000+11:00" -> "2011-12-21"
             meetingDate = meeting.startTime.split('T')[0];
             if (meetingDate == date) {
@@ -168,11 +200,11 @@ window.onload = function () {
     var path2 = smooth(path, .25);
     d.attr({path: path2, "stroke-width": 1, stroke: "#fff", "stroke-linecap": "round"});
     var run = function () {d.animate({path: path, "stroke-width": 4}, 9500, ">");};
-    setInterval(run, 20000);
-    setTimeout(function () {
-        run();
-        setInterval(function () {d.animate({path: path2, "stroke-width": 1}, 9500, ">");}, 20000);
-    }, 10000);
+//    setInterval(run, 20000);
+//    setTimeout(function () {
+//        run();
+//        setInterval(function () {d.animate({path: path2, "stroke-width": 1}, 9500, ">");}, 20000);
+//    }, 10000);
 
     if ($("next")) {
         r.path(when).attr({fill: "#fff", stroke: "none", transform: "t600,88 s2"});
