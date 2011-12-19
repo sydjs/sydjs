@@ -200,11 +200,11 @@ window.onload = function () {
     var path2 = smooth(path, .25);
     d.attr({path: path2, "stroke-width": 1, stroke: "#fff", "stroke-linecap": "round"});
     var run = function () {d.animate({path: path, "stroke-width": 4}, 9500, ">");};
-//    setInterval(run, 20000);
-//    setTimeout(function () {
-//        run();
-//        setInterval(function () {d.animate({path: path2, "stroke-width": 1}, 9500, ">");}, 20000);
-//    }, 10000);
+    setInterval(run, 20000);
+    setTimeout(function () {
+        run();
+        setInterval(function () {d.animate({path: path2, "stroke-width": 1}, 9500, ">");}, 20000);
+    }, 10000);
 
     if ($("next")) {
         r.path(when).attr({fill: "#fff", stroke: "none", transform: "t600,88 s2"});
