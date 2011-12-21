@@ -25,9 +25,9 @@ window.onload = function () {
         d = r.path(),
         tixi = {};
 
-	if(Raphael.type !== ''){
-		document.body.className = document.body.className.replace(/\bno-raphael\b/,'raphael');
-	}
+    if(Raphael.type !== ''){
+        document.body.className = document.body.className.replace(/\bno-raphael\b/,'raphael');
+    }
 
     function getAnchors(p1x, p1y, p2x, p2y, p3x, p3y, value) {
         value = value || 4;
@@ -128,7 +128,7 @@ window.onload = function () {
             }
             if (useOnload) {
                 xhr.onload = callback;
-				xhr.onprogress = function () {}; // Required for IE9 to work
+                xhr.onprogress = function () {}; // Required for IE9 to work
             } else {
                 xhr.onreadystatechange = function () {
                     if (xhr.readyState == 4) {
