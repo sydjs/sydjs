@@ -73,6 +73,15 @@ meetings.push({
 meetings.push({
     date: "2012-01-18 18:00:00",
     speakers: [
+        {name: "Gilmore Davidson", topic: "Ease Yourself Into Animation"},
+        {name: "Jared Wyles", topic: "Missing the Forest for the trees"},
+        {name: "Nick Hodge and Brendan Forster", topic: "Windows 8 - JavaScript ALL the things"}
+    ]
+});
+
+meetings.push({
+    date: "2012-02-15 18:00:00",
+    speakers: [
         {name: "", topic: "Speakers TBC"}
     ]
 });
