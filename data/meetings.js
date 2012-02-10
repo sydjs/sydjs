@@ -82,6 +82,15 @@ meetings.push({
 meetings.push({
     date: "2012-02-15 18:00:00",
     speakers: [
+        {name: "Joseph Gentle", topic: "Porting a 2D physics engine to JavaScript"},
+        {name: "Open mic - this could be you!", topic: "JS5M: 5 minute demos of JS gaming libraries"},
+        {name: "Gabe Hollombe", topic: "Steam Multiplayer Networking"}
+    ]
+});
+
+meetings.push({
+    date: "2012-03-14 18:00:00",
+    speakers: [
         {name: "", topic: "Speakers TBC"}
     ]
 });
