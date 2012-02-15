@@ -89,7 +89,7 @@ meetings.push({
 });
 
 meetings.push({
-    date: "2012-03-14 18:00:00",
+    date: "2012-03-21 18:00:00",
     speakers: [
         {name: "", topic: "Speakers TBC"}
     ]
