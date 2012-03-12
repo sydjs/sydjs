@@ -91,6 +91,14 @@ meetings.push({
 meetings.push({
     date: "2012-03-21 18:00:00",
     speakers: [
+        {name: "Earle Castledine", topic: "Deadlines and deprecation - jQuery you can't see"},
+        {name: "Marcus and Maddy", topic: "Ninja Blocks - the online world you can see"}
+    ]
+});
+
+meetings.push({
+    date: "2012-04-18 18:00:00",
+    speakers: [
         {name: "", topic: "Speakers TBC"}
     ]
 });
