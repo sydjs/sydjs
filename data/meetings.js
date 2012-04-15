@@ -99,8 +99,17 @@ meetings.push({
 meetings.push({
     date: "2012-04-18 18:00:00",
     speakers: [
-        {name: "", topic: "Speakers TBC"}
+        {name: "Simon Swain", topic: "Now you've got two problems... Live data with Node.js"},
+        {name: "Lachlan Hardy", topic: "Windows 8 and Websockets, mate!"},
+        {name: "Chris Broadfoot", topic: "Big and Beautiful: Data Viz with WebSockets and WebGL"}
     ]
+});
+
+meetings.push({
+   date: "2012-05-16 18:00:00",
+   speakers: [
+       {name: "", topic: "Speakers TBC"}
+   ]
 });
 
 //meetings.push({
