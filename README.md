@@ -15,6 +15,8 @@ Running
 
     % node server.js
 
+    Then visit localost:8001 on your local dev box.
+
 Branching
 =========
 
