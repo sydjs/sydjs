@@ -108,6 +108,14 @@ meetings.push({
 meetings.push({
    date: "2012-05-16 18:00:00",
    speakers: [
+       {name: "Vaughan Knight", topic: "Way Out Wars and Dodo GoGo & what I've learnt between"},
+       {name: "Rob Hawkes", topic: "Boot to Gecko (B2G): Building an OS for the open web"}
+   ]
+});
+
+meetings.push({
+   date: "2012-06-20 18:00:00",
+   speakers: [
        {name: "", topic: "Speakers TBC"}
    ]
 });
