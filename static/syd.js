@@ -26,8 +26,8 @@ window.onload = function () {
         d = r.path(),
         tixi = {};
 
-    if(Raphael.type !== ''){
-        document.body.className = document.body.className.replace(/\bno-raphael\b/,'raphael');
+    if(Raphael.type === ''){
+        document.body.className = document.body.className.replace(/\braphael\b/, 'no-raphael');
     }
 
     function getAnchors(p1x, p1y, p2x, p2y, p3x, p3y, value) {
@@ -107,7 +107,7 @@ window.onload = function () {
         }
         return newp;
     }
-    
+
     tixi.xhr = null;
     tixi.getCORS = function () {
         var xhr,
@@ -122,7 +122,7 @@ window.onload = function () {
             }
         }
         xhr && (tixi.xhr = xhr);
-        
+
         return function (method, url, callback) {
             if (!xhr) {
                 return;
@@ -137,7 +137,7 @@ window.onload = function () {
                     }
                 }
             }
-            
+
             xhr.open(method, url, true);
             xhr.send();
         }
@@ -207,11 +207,11 @@ window.onload = function () {
         setInterval(function () {d.animate({path: path2, "stroke-width": 1}, 9500, ">");}, 20000);
     }, 10000);
 
+    var y = 180;
     if ($("next")) {
         r.path(when).attr({fill: "#fff", stroke: "none", transform: "t600,88 s2"});
         r.print(670, 110, $("when").innerHTML, museo, 24).attr({fill: "#fff"});
         i = 1;
-        var y = 180;
         while ($("speaker" + i)) {
             i == 1 && r.path(who).attr({fill: "#fff", stroke: "none", transform: "t600,170 s2"});
             r.print(670, y, $("topic" + i).innerHTML.replace('&amp;', '&'), museo, 24).attr({fill: "#fff"});
@@ -230,7 +230,7 @@ window.onload = function () {
         tixi.set = r.setFinish();
         tixi.print();
         tixi.link = r.rect(600, y + 84, 500, 64).attr({href: $("register").href, fill: "#000", opacity: 0});
-        
+
         tixi.checkStatus();
     }
 
