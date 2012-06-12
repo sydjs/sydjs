@@ -116,6 +116,15 @@ meetings.push({
 meetings.push({
    date: "2012-06-20 18:00:00",
    speakers: [
+       {name: "Filippo Vitale", topic: "Project Euler 208 - How to love JS enough to do maths"},
+       {name: "Andrew Dodson", topic: "OAuth - Now that's something we can all identify with"},
+       {name: "Dave Elkan", topic: "Client/server template sharing with Node.js and Hogan"}
+   ]
+});
+
+meetings.push({
+   date: "2012-07-18 18:00:00",
+   speakers: [
        {name: "", topic: "Speakers TBC"}
    ]
 });
