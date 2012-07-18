@@ -125,7 +125,7 @@ meetings.push({
 meetings.push({
    date: "2012-07-18 18:00:00",
    speakers: [
-       {name: "Jo Cranford", topic: "Testing like a boss"},
+       {name: "Jo Cranford", link: "http://github.com/jocranford", topic: "Testing like a boss"},
        {name: "Chris Saunders", topic: "Power and Flexibility - the BlackBerry Web Platform"}
    ]
 });

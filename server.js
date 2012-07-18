@@ -85,6 +85,7 @@ function parseMeetings(data) {
             current.speakers.forEach(function (speaker, i) {
                 section = template.replace(/\{\{n\}\}/g, i + 1)
                     .replace("{{speaker}}", speaker.name)
+                    .replace("{{speakerurl}}", speaker.link || "")
                     .replace("{{topic}}", speaker.topic);
                 html.push(section);
             });
