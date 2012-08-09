@@ -148,7 +148,7 @@ window.onload = function () {
         request("GET", url, tixi.processData);
     }
     tixi.processData = function () {
-        if (tixi.xhr.status >= 400) {
+        if (tixi.xhr.status >= 400 || !tixi.xhr.responseText) {
             return;
         }
         var data = JSON.parse(tixi.xhr.responseText),
@@ -207,7 +207,7 @@ window.onload = function () {
         setInterval(function () {d.animate({path: path2, "stroke-width": 1}, 9500, ">");}, 20000);
     }, 10000);
 
-    var y = 180;
+    var y = 180, href;
     if ($("next")) {
         r.path(when).attr({fill: "#fff", stroke: "none", transform: "t600,88 s2"});
         r.print(670, 110, $("when").innerHTML, museo, 24).attr({fill: "#fff"});
@@ -215,7 +215,11 @@ window.onload = function () {
         while ($("speaker" + i)) {
             i == 1 && r.path(who).attr({fill: "#fff", stroke: "none", transform: "t600,170 s2"});
             r.print(670, y, $("topic" + i).innerHTML.replace('&amp;', '&'), museo, 24).attr({fill: "#fff"});
-            r.print(670, y + 24 * 1.1, $("speaker" + i).innerText, museo, 18).attr({fill: "#fff", opacity: .6, href:$("speaker" + i).children[0].href});
+            r.print(670, y + 24 * 1.1, $("speaker" + i).innerText, museo, 18).attr({fill: "#fff", opacity: .6});
+            href = $("speaker" + i).children[0].getAttribute("href");
+            if (href) {
+                r.rect(670, y + 13, 300, 26).attr({href: href, fill: "#000", opacity: 0});
+            }
             y += 24 * 1.3 * 2;
             i++;
         }
