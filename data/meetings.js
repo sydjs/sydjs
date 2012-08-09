@@ -130,6 +130,21 @@ meetings.push({
    ]
 });
 
+meetings.push({
+   date: "2012-08-15 18:00:00",
+   speakers: [
+       {name: "Sugendran Ganess", topic: "Making a scott free Ski Free"},
+       {name: "Valery Yushchenko", topic: "Touching on Sencha Touch"},
+       {name: "David Banham", topic: "There I fixed it!"}
+   ]
+});
+
+meetings.push({
+   date: "2012-09-19 18:00:00",
+   speakers: [
+       {name: "", topic: "Speakers TBC"}
+   ]
+});
 
 //meetings.push({
 //    date: "2012-01-18 18:00:00",
