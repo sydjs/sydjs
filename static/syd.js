@@ -207,20 +207,22 @@ window.onload = function () {
         setInterval(function () {d.animate({path: path2, "stroke-width": 1}, 9500, ">");}, 20000);
     }, 10000);
 
-    var y = 180, href;
+    var y = 180, href, topicNode, speakerNode;
     if ($("next")) {
         r.path(when).attr({fill: "#fff", stroke: "none", transform: "t600,88 s2"});
         r.print(670, 110, $("when").innerHTML, museo, 24).attr({fill: "#fff"});
         i = 1;
         while ($("speaker" + i)) {
             i == 1 && r.path(who).attr({fill: "#fff", stroke: "none", transform: "t600,170 s2"});
-            href = $("topic" + i).children[0].getAttribute("href");
-            r.print(670, y, $("topic" + i).innerText.replace('&amp;', '&'), museo, 24).attr({fill: "#fff"});
+            topicNode = $("topic" + i);
+            href = topicNode.children[0].getAttribute("href");
+            r.print(670, y, (topicNode.innerText || topicNode.textContent).replace('&amp;', '&'), museo, 24).attr({fill: "#fff"});
             if (href) { //Need rectangle to click on, not just text shapes
                 r.rect(670, y-10, 300, 24).attr({href: href, fill: "#000", opacity: 0});
             }
-            r.print(670, y + 24 * 1.1, $("speaker" + i).innerText, museo, 18).attr({fill: "#fff", opacity: .6});
-            href = $("speaker" + i).children[0].getAttribute("href");
+            speakerNode = $("speaker" + i);
+            href = speakerNode.children[0].getAttribute("href");
+            r.print(670, y + 24 * 1.1, (speakerNode.innerText || speakerNode.textContent), museo, 18).attr({fill: "#fff", opacity: .6});
             if (href) {
                 r.rect(670, y + 13, 300, 26).attr({href: href, fill: "#000", opacity: 0});
             }
