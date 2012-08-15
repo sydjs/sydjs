@@ -125,17 +125,21 @@ meetings.push({
 meetings.push({
    date: "2012-07-18 18:00:00",
    speakers: [
-       {name: "Jo Cranford", link: "http://github.com/jocranford", topic: "Testing like a boss"},
-       {name: "Chris Saunders", topic: "Power and Flexibility - the BlackBerry Web Platform"}
+       {name: "Jo Cranford", link: "http://www.slideshare.net/jocranford/testing-javascriptwithjasmine-sydjs", twitter:"jocranford",
+       topic: "Testing like a boss"},
+       {name: "Chris Saunders", link: "http://developer.blackberry.com", topic: "Power and Flexibility - the BlackBerry Web Platform"}
    ]
 });
 
 meetings.push({
    date: "2012-08-15 18:00:00",
    speakers: [
-       {name: "Sugendran Ganess", topic: "Making a scott free Ski Free"},
-       {name: "Valery Yushchenko", topic: "Touching on Sencha Touch"},
-       {name: "David Banham", topic: "There I fixed it!"}
+       {name: "Sugendran Ganess", link:"https://github.com/sugendran/ski-gratis", twitter:"sugendran",
+       topic: "Making a scott free Ski Free"},
+       {name: "Valery Yushchenko", link:"https://github.com/yushchenko/sencha-touch-talk-at-sydjs", twitter:"vyushchenko",
+       topic: "Touching on Sencha Touch"},
+       {name: "David Banham", link:"https://github.com/davidbanham", twitter:"davidbanham",
+       topic: "There I fixed it!"}
    ]
 });
 

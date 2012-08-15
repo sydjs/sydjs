@@ -214,7 +214,11 @@ window.onload = function () {
         i = 1;
         while ($("speaker" + i)) {
             i == 1 && r.path(who).attr({fill: "#fff", stroke: "none", transform: "t600,170 s2"});
-            r.print(670, y, $("topic" + i).innerHTML.replace('&amp;', '&'), museo, 24).attr({fill: "#fff"});
+            href = $("topic" + i).children[0].getAttribute("href");
+            r.print(670, y, $("topic" + i).innerText.replace('&amp;', '&'), museo, 24).attr({fill: "#fff"});
+            if (href) { //Need rectangle to click on, not just text shapes
+                r.rect(670, y-10, 300, 24).attr({href: href, fill: "#000", opacity: 0});
+            }
             r.print(670, y + 24 * 1.1, $("speaker" + i).innerText, museo, 18).attr({fill: "#fff", opacity: .6});
             href = $("speaker" + i).children[0].getAttribute("href");
             if (href) {

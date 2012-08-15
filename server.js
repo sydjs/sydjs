@@ -85,8 +85,9 @@ function parseMeetings(data) {
             current.speakers.forEach(function (speaker, i) {
                 section = template.replace(/\{\{n\}\}/g, i + 1)
                     .replace("{{speaker}}", speaker.name)
-                    .replace("{{speakerurl}}", speaker.link || "")
-                    .replace("{{topic}}", speaker.topic);
+                    .replace("{{speakerurl}}", speaker.twitter ? "https://twitter.com/" + speaker.twitter : "")
+                    .replace("{{topic}}", speaker.topic)
+                    .replace("{{topicurl}}", speaker.link ? speaker.link : "");
                 html.push(section);
             });
             return html.join("");
