@@ -138,7 +138,7 @@ meetings.push({
        topic: "Making a scott free Ski Free"},
        {name: "Valery Yushchenko", link:"https://github.com/yushchenko/sencha-touch-talk-at-sydjs", twitter:"vyushchenko",
        topic: "Touching on Sencha Touch"},
-       {name: "David Banham", link:"https://github.com/davidbanham", twitter:"davidbanham",
+       {name: "David Banham", link:"http://revealjs.jit.su/fixed.html", twitter:"davidbanham",
        topic: "There I fixed it!"}
    ]
 });
