@@ -144,7 +144,16 @@ meetings.push({
 });
 
 meetings.push({
-   date: "2012-09-19 18:00:00",
+   date: "2012-09-13 17:30:00",
+   speakers: [
+       {name: "Damon Oehlman", twitter: "DamonOehlman", topic: "The Quest for Reusable JS", link: "https://github.com/DamonOehlman"},
+       {name: "Joseph Gentle", twitter: "josephgentle", topic: "ShareJS: Let's delete the save button", link: "http://sharejs.org/"},
+       {name: "Sam Gentle", twitter: "sgentle", topic: "Nodelay", link: ""}
+   ]
+});
+
+meetings.push({
+   date: "2012-10-17 18:00:00",
    speakers: [
        {name: "", topic: "Speakers TBC"}
    ]
