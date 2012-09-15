@@ -209,10 +209,6 @@ window.onload = function () {
 
     var y = 180, href, topicNode, speakerNode;
     if ($("next")) {
-        /* Special for YOW! Night */
-        y = 250;
-        r.print(585, 90, "Special: SydJS / YOW! Night Sydney", museo, 30).attr({fill: "#fff"});
-        /* End YOW! stuff */
         r.path(when).attr({fill: "#fff", stroke: "none", transform: "t600," + (y - 92) + " s2"});
         r.print(670, y - 70, $("when").innerHTML, museo, 24).attr({fill: "#fff"});
         i = 1;
@@ -245,8 +241,7 @@ window.onload = function () {
         tixi.print();
         tixi.link = r.rect(600, y + 84, 500, 64).attr({href: $("register").href, fill: "#000", opacity: 0});
 
-        // Disabled for YOW! Night
-        // tixi.checkStatus();
+        tixi.checkStatus();
     }
 
     r.path(twitter).attr({fill: "#fff", stroke: "none", transform: "t25," + (y + 172)});
