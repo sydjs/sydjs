@@ -155,6 +155,15 @@ meetings.push({
 meetings.push({
    date: "2012-10-17 18:00:00",
    speakers: [
+       {name: "Jared Wyles", twitter: "rioter", topic: "Sharpening the edge of your HTML5"},
+       {name: "Stoyan Stefanov", twitter: "stoyanstefanov", topic: "Liking performance"},
+       {name: "Douglas Crockford", topic: "Faster, easier and safer"}
+   ]
+});
+
+meetings.push({
+   date: "2012-11-21 18:00:00",
+   speakers: [
        {name: "", topic: "Speakers TBC"}
    ]
 });
