@@ -209,10 +209,6 @@ window.onload = function () {
 
     var y = 180, href, topicNode, speakerNode;
     if ($("next")) {
-        /* Special for Web Week */
-        y = 250;
-        r.print(585, 90, "Web Week special event", museo, 30).attr({fill: "#fff"});
-        /* End Web Week */
         r.path(when).attr({fill: "#fff", stroke: "none", transform: "t600," + (y - 92) + " s2"});
         r.print(670, y - 70, $("when").innerHTML, museo, 24).attr({fill: "#fff"});
         i = 1;
