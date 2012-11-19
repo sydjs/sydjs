@@ -164,6 +164,15 @@ meetings.push({
 meetings.push({
    date: "2012-11-21 18:00:00",
    speakers: [
+       {name: "Steve Haffenden", twitter: "SMHaffenden", topic: "Putting the Hey You in JSConfAU"},
+       {name: "Daniel Friedman", twitter: "danfriedman", topic: "Nodebots, Nodecopters, and now Ninja Blocks"},
+       {name: "Special Mystery Guest", topic: "(Who can it be now?)"}
+   ]
+});
+
+meetings.push({
+   date: "2012-12-19 18:00:00",
+   speakers: [
        {name: "", topic: "Speakers TBC"}
    ]
 });
