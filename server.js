@@ -3,6 +3,7 @@ process.env.TZ = 'Australia/Sydney';
 var express = require('express');
 var app = express();
 
+app.set('port', process.env.PORT || 8001);
 app.set('views', __dirname + '/views');
 app.use(express.logger('dev'));
 app.use(express.static(__dirname + '/static'));
@@ -30,7 +31,9 @@ app.use(function (err, req, res, next) {
     res.send(500, '<!doctype html><html lang=en><meta charset=utf-8><title>Internal Error</title><style>body{background:#22252a;color:#fff;font:300 100.01% "Helvetica Neue",Helvetica,"Arial Unicode MS",Arial,sans-serif;}h1{font-weight:300;text-align:center;padding:5em;color:#fcc;}</style><body><h1>500<br>Internal Error<p>');
 });
 
-app.listen(parseInt(process.env.PORT || 8001, 10));
+app.listen(app.get('port'), function(){
+    console.log('Server listening on port ' + app.get('port'));
+});
 
 function getNextMeeting() {
     var meetings = require("./data/meetings").meetings,
