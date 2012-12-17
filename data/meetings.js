@@ -173,6 +173,14 @@ meetings.push({
 meetings.push({
    date: "2012-12-19 18:00:00",
    speakers: [
+       {name: "John Bristowe", twitter: "JohnBristowe", topic: "Surviving the Mayan Apocalypse with Kendo UI"},
+       {name: "Nick Hodge", twitter: "NickHodgeMSFT", topic: "IE10: web, phone and native apps"}
+   ]
+});
+
+meetings.push({
+   date: "2013-01-16 18:00:00",
+   speakers: [
        {name: "", topic: "Speakers TBC"}
    ]
 });
