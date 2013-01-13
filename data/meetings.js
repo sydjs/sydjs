@@ -181,8 +181,17 @@ meetings.push({
 meetings.push({
    date: "2013-01-16 18:00:00",
    speakers: [
-       {name: "", topic: "Speakers TBC"}
+       {name: "John Scott", topic: "The Joy of AngularJS"},
+       {name: "Aaron Powell", twitter: "slace", topic: "Something, something, TypeScript"},
+       {name: "Glen Maddern", twitter: "glenmaddern", topic: "Sup, AngularJS?"}
    ]
+});
+
+meetings.push({
+    date: "2013-02-20 18:00:00",
+    speakers: [
+        {name: "", topic: "Speakers TBC"}
+    ]
 });
 
 //meetings.push({
