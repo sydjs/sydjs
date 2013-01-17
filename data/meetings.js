@@ -205,8 +205,7 @@ meetings.push({
 
 
 meetings.sort(function (a, b) {
-    var ad = a.date, bd = b.date;
-    return ad == bd ? 0 : ad < bd ? -1 : 1;
+    return a.date.localeCompare(b.date);
 });
 
 exports.meetings = meetings;
