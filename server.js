@@ -14,6 +14,16 @@ app.set('view engine', 'hjs');
 var couchUrl = process.env.COUCH_URL
 
 request.put(couchUrl+"/meetings");
+var ddoc = {
+	"_id": "_design/meetings",
+	"language": "javascript",
+	"views": {
+		"future_meetings": {
+			"map": "function(doc) { if((doc.ISOString.localeCompare(new Date().toISOString()) > 0)){ emit(doc)}}"
+		}
+	}
+}
+request.put(couchUrl+"/meetings/_design/meetings", {json: ddoc});
 
 app.get('/timetest', function (req, res) {
     var now = new Date();
