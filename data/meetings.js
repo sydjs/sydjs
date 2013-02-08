@@ -190,6 +190,16 @@ meetings.push({
 meetings.push({
     date: "2013-02-20 18:00:00",
     speakers: [
+        {name: "Alex Dickson", twitter: "alexdickson", topic: "Building a debugger/disassembler in JavaScript"},
+        {name: "Chris Darroch", twitter: "chrisdarroch", topic: "Untitled"},
+        {name: "Adam Ahmed", twitter: "typesthings", topic: "Real world Node.JS drones"},
+        {name: "Gilmore Davidson", twitter: "iamnotyourbroom", topic: "WebRTC: Look Ma, no Flash!"}
+    ]
+});
+
+meetings.push({
+    date: "2013-03-20 18:00:00",
+    speakers: [
         {name: "", topic: "Speakers TBC"}
     ]
 });
