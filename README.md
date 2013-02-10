@@ -23,7 +23,7 @@ Running the server
 
 Start the server with `node server.js`, then visit `localhost:8001` on your local dev box.
 
-Alternatively, if you're making changes to the server code, it's easier to use [Nodemon][nodemon] to automatically reload the server when you save the file. Run `npm install -g nodemon` to install it, then `nodemon server.js` to start the server.
+Alternatively, if you're making changes to the server code, it's easier to use [Nodemon][nodemon] to automatically reload the server when you save the file. Run `npm install -g nodemon` to install it, then `nodemon` to start the server.
 
 Branching
 =========

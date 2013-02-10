@@ -2,6 +2,7 @@ process.env.TZ = 'Australia/Sydney';
 
 var express = require('express');
 var app = express();
+var request = require("request");
 
 app.set('port', process.env.PORT || 8001);
 app.set('views', __dirname + '/views');
@@ -9,6 +10,20 @@ app.use(express.logger('dev'));
 app.use(express.static(__dirname + '/static'));
 app.engine('html', require('hjs').__express);
 app.set('view engine', 'hjs');
+
+var couchUrl = process.env.COUCH_URL
+
+request.put(couchUrl+"/meetings");
+var ddoc = {
+	"_id": "_design/meetings",
+	"language": "javascript",
+	"views": {
+		"future_meetings": {
+			"map": "function(doc) { if((doc.ISOString.localeCompare(new Date().toISOString()) > 0)){ emit(doc)}}"
+		}
+	}
+}
+request.put(couchUrl+"/meetings/_design/meetings", {json: ddoc});
 
 app.get('/timetest', function (req, res) {
     var now = new Date();
@@ -18,7 +33,9 @@ app.get('/timetest', function (req, res) {
 });
 
 app.get('/', function (req, res) {
-    res.render('index.html', getNextMeeting());
+    getNextMeeting(function(nextMeeting) {
+        res.render('index.html', nextMeeting);
+    });
 });
 
 app.use(function (req, res, next) {
@@ -35,8 +52,10 @@ app.listen(app.get('port'), function(){
     console.log('Server listening on port ' + app.get('port'));
 });
 
-function getNextMeeting() {
-    var meetings = require("./data/meetings").meetings,
+function getNextMeeting(cb) {
+
+    request.get(couchUrl+"/meetings/_design/meetings/_view/future_meetings", function(e, r, body) {
+        var meetings = JSON.parse(body).rows,
         index = meetings.length,
         data, meeting,
         startTime,
@@ -47,28 +66,31 @@ function getNextMeeting() {
             now.getMonth(),
             now.getDate()
         );
-    while (index--) {
-        meeting = meetings[index];
-        startTime = new Date(meeting.date);
-        if (startTime < prevMidnight) {
-            break;
+        while (index--) {
+            meeting = meetings[index].key;
+            startTime = new Date(meeting.date);
+            if (startTime < prevMidnight) {
+                break;
+            }
+            current = meeting;
         }
-        current = meeting;
-    }
-    startTime = new Date(current.date);
-    data = {
-        datetime: startTime.toString(),
-        datevalue: current.date + '+' + (-startTime.getTimezoneOffset() * 10 / 6),
-        presentations: []
-    };
-    current.speakers.forEach(function (speaker, i) {
-        data.presentations.push({
-            n: i + 1,
-            speaker: speaker.name,
-            speakerurl: speaker.twitter ? 'https://twitter.com/' + speaker.twitter : '',
-            topic: speaker.topic,
-            topicurl: speaker.link || ''
+        console.log(current);
+        startTime = new Date(current._id);
+        data = {
+            datetime: startTime.toString(),
+            datevalue: current._id + '+' + (-startTime.getTimezoneOffset() * 10 / 6),
+            presentations: []
+        };
+        current.speakers.forEach(function (speaker, i) {
+            data.presentations.push({
+                n: i + 1,
+                speaker: speaker.name,
+                speakerurl: speaker.twitter ? 'https://twitter.com/' + speaker.twitter : '',
+                topic: speaker.topic,
+                topicurl: speaker.link || ''
+            });
         });
+        console.log(data);
+        cb(data);
     });
-    return data;
 }
