@@ -199,6 +199,15 @@ meetings.push({
 
 meetings.push({
     date: "2013-03-20 18:00:00",
+    title: "Lightning talks night",
+    speakers: [
+        {name: "Julio Cesar Ody", twitter: "julio_ody", topic: "Angular vs Backbone"},
+        {topic: "And many more..."}
+    ]
+});
+
+meetings.push({
+    date: "2013-04-17 18:00:00",
     speakers: [
         {name: "", topic: "Speakers TBC"}
     ]

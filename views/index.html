@@ -10,6 +10,10 @@
             <h1 class="summary">Sydney JavaScript Group</h1>
             <h2 id="next">Next Meeting:</h2>
             <dl>
+            {{#title}}
+                <dt>Title:</dt>
+                <dd id="what">{{title}}</dd>
+            {{/title}}
                 <dt>When:</dt>
                 <dd id="when" class="dtstart" class="value" title="{{datevalue}}">{{datetime}}</dd>
                 <dt>Who:</dt>

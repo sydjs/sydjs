@@ -207,8 +207,13 @@ window.onload = function () {
         setInterval(function () {d.animate({path: path2, "stroke-width": 1}, 9500, ">");}, 20000);
     }, 10000);
 
-    var y = 180, href, topicNode, speakerNode;
+    var y = 180, title, href, topicNode, speakerNode;
     if ($("next")) {
+        title = $("what");
+        if (title) {
+            r.print(585, y - 90, title.innerHTML, museo, 30).attr({fill: "#fff"});
+            y = 250;
+        }
         r.path(when).attr({fill: "#fff", stroke: "none", transform: "t600," + (y - 92) + " s2"});
         r.print(670, y - 70, $("when").innerHTML, museo, 24).attr({fill: "#fff"});
         i = 1;

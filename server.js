@@ -57,6 +57,7 @@ function getNextMeeting() {
     }
     startTime = new Date(current.date);
     data = {
+        title: current.title || '',
         datetime: startTime.toString(),
         datevalue: current.date + '+' + (-startTime.getTimezoneOffset() * 10 / 6),
         presentations: []
