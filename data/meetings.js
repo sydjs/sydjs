@@ -208,6 +208,16 @@ meetings.push({
 
 meetings.push({
     date: "2013-04-17 18:00:00",
+    title: "SydJS turns 3: JS Libraries revisited",
+    speakers: [
+        {name: "Cameron Adams", twitter: "themaninblue", topic: "Pure JavaScript"},
+        {name: "Earle Castledine", twitter: "mrspeaker", topic: "jQuery"},
+        {name: "Jason Crane", twitter: "snapperwolf", topic: "YUI"}
+    ]
+});
+
+meetings.push({
+    date: "2013-05-15 18:00:00",
     speakers: [
         {name: "", topic: "Speakers TBC"}
     ]
