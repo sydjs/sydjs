@@ -223,6 +223,24 @@ meetings.push({
     ]
 });
 
+meetings.push({
+    date: "2013-06-19 18:00:00",
+    speakers: [
+        {name: "Mark Byers", topic: "JavaScript based ERP"},
+        {name: "Simon Rodwell", topic: "I18n - why, how, and where the name came from"},
+        {name: "Christopher Saunders", topic: "WebGL, the Goo Engine, and your Blackberry"},
+        {name: "Michael Neale", twitter: "michaelneale", topic: "Jenkins-CI & JavaScript"},
+        {name: "Patrick Roumanoff", topic: "The future is a promise"}
+    ]
+});
+
+meetings.push({
+    date: "2013-07-17 18:00:00",
+    speakers: [
+        {name: "", topic: "Speakers TBC"}
+    ]
+});
+
 //meetings.push({
 //    date: "2012-01-18 18:00:00",
 //    speakers: [

@@ -2,6 +2,10 @@
   "name": "sydjs",
   "version": "1.1.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sydjs/sydjs.git"
+  },
   "engines": {
     "node": "0.8.x",
     "npm":  "1.1.x"
