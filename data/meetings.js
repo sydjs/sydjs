@@ -237,6 +237,15 @@ meetings.push({
 meetings.push({
     date: "2013-07-17 18:00:00",
     speakers: [
+        {name: "John Allsopp", twitter: "johnallsopp", topic: "Building an HTML5 security camera LIVE in under 15 min"},
+        {name: "Don Nguyen", topic: "Server Side JS - building a game right before your eyes"},
+        {name: "Ben Schwarz", twitter: "benschwartz", topic: "Built an application, and will show you what he learnt"}
+    ]
+});
+
+meetings.push({
+    date: "2013-08-21 18:00:00",
+    speakers: [
         {name: "", topic: "Speakers TBC"}
     ]
 });
