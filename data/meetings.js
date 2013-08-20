@@ -246,6 +246,21 @@ meetings.push({
 meetings.push({
     date: "2013-08-21 18:00:00",
     speakers: [
+        {name: "Aaron Powell", twitter: "slace", topic: "Everything you wanted to know about IE11"},
+        {name: "Vaughan Knight", twitter: "vaughanknight", topic: "Breaking up with JavaScript - A tragic love story"}
+    ]
+});
+
+meetings.push({
+    date: "2013-09-25 18:00:00",
+    speakers: [
+        {name: "", topic: "Speakers TBC"}
+    ]
+});
+
+meetings.push({
+    date: "2013-10-23 18:00:00",
+    speakers: [
         {name: "", topic: "Speakers TBC"}
     ]
 });
