@@ -254,21 +254,35 @@ meetings.push({
 meetings.push({
     date: "2013-09-25 18:00:00",
     speakers: [
-        {name: "", topic: "Speakers TBC"}
+        {name: "Benjamin Lupton", twitter: "balupton", topic: "DocPad - How, when, where, and why"},
+        {name: "David Banham", twitter: "davidbanham", topic: "Lightning Talk: Rant, Rant, Rant"},
+        {name: "Damon Oehlman", twitter: "DamonOehlman", topic: "Deploy Your Node - IaaS and PaaS players from a nodeJS perspective"},
+        {name: "Nikolay Nemshilov", topic: "JavaScript and CSS - Totally changing the course of humans history"}
     ]
 });
 
 meetings.push({
     date: "2013-10-23 18:00:00",
+    title: "“JavaScript Weekly” Lightning Talks",
     speakers: [
-        {name: "", topic: "Speakers TBC"}
+        {
+            topic: "Benjamin Lupton, David Banham, Nikolay Nemshilov",
+            name: "Damon Oehlman, Aaron Powell... and 7 more"
+        }
+    ]
+});
+
+meetings.push({
+    date: "2013-11-20 18:00:00",
+    speakers: [
+        {name: "", twitter: "", topic: "Speakers TBC"}
     ]
 });
 
 //meetings.push({
 //    date: "2012-01-18 18:00:00",
 //    speakers: [
-//        {name: "", topic: "Speakers TBC"}
+//        {name: "", twitter: "", topic: "Speakers TBC"}
 //    ]
 //});
 
