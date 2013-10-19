@@ -7,8 +7,8 @@
     "url": "https://github.com/sydjs/sydjs.git"
   },
   "engines": {
-    "node": "0.8.x",
-    "npm":  "1.1.x"
+    "node": ">=0.10.21",
+    "npm":  "1.2.x"
   },
   "dependencies": {
     "express": "3.0.x",
