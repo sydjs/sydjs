@@ -255,8 +255,8 @@ meetings.push({
     date: "2013-09-25 18:00:00",
     speakers: [
         {name: "Benjamin Lupton", twitter: "balupton", topic: "DocPad - How, when, where, and why"},
-        {name: "David Banham", twitter: "davidbanham", topic: "Lightning Talk: Rant, Rant, Rant"},
-        {name: "Damon Oehlman", twitter: "DamonOehlman", topic: "Deploy Your Node - IaaS and PaaS players from a nodeJS perspective"},
+        {name: "Damon Oehlman", twitter: "DamonOehlman", topic: "Lightning Talk: Rant, Rant, Rant"},
+        {name: "David Banham", twitter: "davidbanham", topic: "Deploy Your Node - IaaS and PaaS players from a nodeJS perspective"},
         {name: "Nikolay Nemshilov", topic: "JavaScript and CSS - Totally changing the course of humans history"}
     ]
 });
@@ -274,8 +274,11 @@ meetings.push({
 
 meetings.push({
     date: "2013-11-20 18:00:00",
+    title: "“Nodevember”",
     speakers: [
-        {name: "", twitter: "", topic: "Speakers TBC"}
+        {name: "Jed Watson", twitter: "JedWatson", topic: "KeystoneJS – A head-start on the features you need"},
+        {name: "Simon Swain", twitter: "simon_swain", topic: "Berzerk – Interactive charting via Backbone"},
+        {name: "Ben Wong & Alex Dickson", twitter: "alexdickson", topic: "A node-powered arcade machine"}
     ]
 });
 
